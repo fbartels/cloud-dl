@@ -2,7 +2,12 @@
 
 version="1.6"
 
-conf="$HOME/.cloudconf"
+# allow to specify a differing .cloudconf via env
+if [ -z "$cloudconf" ]; then
+	conf="$HOME/.cloudconf"
+else
+	conf="$cloudconf"
+fi
 
 list(){
     dir=$(echo $1 | sed 's/ /%20/g')
